@@ -1,0 +1,12 @@
+name: Loop B
+
+on:
+  workflow_run:
+    workflows: ["Loop A"]
+    types: [completed]
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Loop B triggered at $(date)"
